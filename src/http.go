@@ -1,0 +1,32 @@
+package main
+
+import (
+	"encoding/json"
+	"io/ioutil"
+	"net/http"
+)
+
+func getJsonFromWebAPI(currentServerSteamID string) {
+
+	apiDomain := cfg.Dataset.SteamWebApi
+	apiKey := "key=" + cfg.Steam.ApiKey
+	matchPatch := "/IDOTA2MatchStats_570/GetRealtimeStats/v1/?"
+	serverSteamID := "server_steam_id=" + currentServerSteamID
+	URI := apiDomain + matchPatch + apiKey + "&" + serverSteamID
+
+	for i := 0; i < 3; i++ {
+		resp, err := http.Get(URI)
+		if err != nil {
+			processError(err)
+		}
+
+		if resp.StatusCode == 200 {
+			body, err := ioutil.ReadAll(resp.Body)
+			if err != nil {
+				processError(err)
+			}
+			json.Unmarshal([]byte(body), &matchJson)
+			break
+		}
+	}
+}

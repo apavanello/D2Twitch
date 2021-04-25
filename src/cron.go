@@ -8,12 +8,10 @@ import (
 )
 
 func startCron() {
-
 	c := cron.New(cron.WithSeconds())
-
-	if _, err := c.AddFunc(cfg.Cron.GetServerSteamID, runGetServerSteamID); err != nil { processError(err) }
-
-
+	if _, err := c.AddFunc(cfg.Cron.GetServerSteamID, runGetServerSteamID); err != nil {
+		processError(err)
+	}
 	go c.Start()
 	sig := make(chan os.Signal)
 	signal.Notify(sig, os.Interrupt, os.Kill)
@@ -21,6 +19,12 @@ func startCron() {
 }
 
 func runGetServerSteamID() {
-	currentServerSteamID := consoleLog()
+	currentServerSteamID = consoleLog()
 	fmt.Printf("%v\n", currentServerSteamID)
+	runGetMatchJson()
+}
+
+func runGetMatchJson() {
+	getJsonFromWebAPI(currentServerSteamID)
+	fmt.Println(matchJson)
 }

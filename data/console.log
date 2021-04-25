@@ -4312,7 +4312,7 @@ is_recording_match_training_data: false
 04/25 02:21:37 [NetSteamConn] CloseSteamNetConnection handle #2163704908 (userdata 1)
 04/25 02:21:37 [NetSteamConn] Disassociating NetChan       client                      [-1] (unknown) from Steam Net Connection handle #2163704908 (userdata 1)
 04/25 02:21:37 [SteamNetSockets] [#2163704908 pipe] closed by app, entering linger state (1059) NETWORK_DISCONNECT_EXITING
-04/25 02:21:37 [SteamNetSockets] [#3750519865 pipe] closed by peer (1059): NETWORK_DISCONNECT_EXITING
+04/25 02:21:37 [SteamNetSockets] [#3750519865 pipe] closed by peer (1059): NETWORK_DISCONNECT_EXITINGste
 04/25 02:21:37 [NetSteamConn] Removing Steam Net Connection for loopback:1, handle #2163704908
 04/25 02:21:37 [Networking] Closing 'client' poll group
 04/25 02:21:37 [Server] SV:  Server shutting down: NETWORK_DISCONNECT_EXITING (59)
@@ -4366,3 +4366,6 @@ is_recording_match_training_data: false
 04/25 02:21:38 ShutdownSource2Logging
 04/25 02:21:38 [RenderSystem] Calling xcb_aux_sync() on xcb connection after vkDestroySwapchainKHR...
 04/25 02:21:38 [RenderSystem] xcb_aux_sync() completed, xcb_get_input_focus_reply_t = 0x55e0262217a0
+
+
+04/25 02:21:00 [Client] steamid  : [A:1:58279941:17197] (90145881982882819)
