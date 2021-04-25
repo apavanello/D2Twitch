@@ -1,0 +1,21 @@
+steam:
+  apiKey: "17A2E0F0553D127605429A39E67106ED"
+  userID: "76220812"
+
+dataset:
+  console:
+    path: "/home/alpsilva/go/src/github.com/apavanello/D2Twitch/data/console.log"
+    clearAfterRead: false
+  steamWebApi: "api.steampowered.com"
+  openDotaApi: "api.opendota.com"
+
+output:
+  matchStats: "../output/matchstats.txt"
+  playerStats: "../output/playerstats.txt"
+
+cron:
+  # s m h d m D
+  #Cada 1 Min
+  getServerSteamID: "0 * * * * *"
+  # Cada 5 Min
+  getMatchStats: "0 */5 * * * *"
