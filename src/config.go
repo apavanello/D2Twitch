@@ -2,6 +2,7 @@ package main
 
 import (
 	"gopkg.in/yaml.v2"
+	"os"
 )
 
 // Config
@@ -45,7 +46,12 @@ type Console struct {
 }
 
 // Metodo loadConfig
-func (c *Config) loadConfig(configFile string) {
+func (c *Config) loadConfig() {
+	var scriptPath, err = os.Getwd()
+	if err != nil {
+		processError(err)
+	}
+	configFile := scriptPath + "/config.yaml"
 
 	// Abre o Arquivo
 	f := openFile(configFile)
@@ -57,7 +63,7 @@ func (c *Config) loadConfig(configFile string) {
 	decoder := yaml.NewDecoder(f)
 
 	// Decodifica o YAML e joga para o apontamento em c (CONFIG STRUCT)
-	err := decoder.Decode(&c)
+	err = decoder.Decode(&c)
 
 	// Loga se der erro
 	if err != nil {
