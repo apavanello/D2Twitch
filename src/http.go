@@ -25,7 +25,9 @@ func getJsonFromWebAPI(currentServerSteamID string) {
 			if err != nil {
 				processError(err)
 			}
-			json.Unmarshal([]byte(body), &matchJson)
+			if err := json.Unmarshal(body, &matchJson); err != nil {
+				processError(err)
+			}
 			break
 		}
 	}
