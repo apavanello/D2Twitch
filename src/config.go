@@ -9,8 +9,7 @@ type Config struct {
 	Output  Output  `yaml:"output"`
 	Steam   Steam   `yaml:"steam"`
 	Dataset Dataset `yaml:"dataset"`
-	Cron	Cron	`yaml:"cron"`
-
+	Cron    Cron    `yaml:"cron"`
 }
 
 // Output
@@ -36,6 +35,7 @@ type Dataset struct {
 type Cron struct {
 	GetServerSteamID string `yaml:"getServerSteamID"`
 	GetMatchStats    string `yaml:"getMatchStats"`
+	WriteMatchStats  string `yaml:"writeMatchStats"`
 }
 
 // Console

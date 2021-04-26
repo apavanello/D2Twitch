@@ -17,5 +17,6 @@ cron:
   #ss mm hh d m D
   #Cada 1 Min
   getServerSteamID: "0 * * * * *"
+  writeMatchStats: "0 * * * * *"
   # Cada 5 Min
   getMatchStats: "0 */5 * * * *"

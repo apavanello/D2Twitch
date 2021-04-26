@@ -9,14 +9,14 @@ type Match struct {
 }
 
 type Building struct {
-	Team      int64 `json:"team"`
-	Heading   int64 `json:"heading"`
-	Type      int64 `json:"type"`
-	Lane      int64 `json:"lane"`
-	Tier      int64 `json:"tier"`
-	X         int64 `json:"x"`
-	Y         int64 `json:"y"`
-	Destroyed bool  `json:"destroyed"`
+	Team      int64   `json:"team"`
+	Heading   float64 `json:"heading"`
+	Type      int64   `json:"type"`
+	Lane      int64   `json:"lane"`
+	Tier      int64   `json:"tier"`
+	X         float64 `json:"x"`
+	Y         float64 `json:"y"`
+	Destroyed bool    `json:"destroyed"`
 }
 
 type GraphData struct {
@@ -54,19 +54,21 @@ type Team struct {
 }
 
 type Player struct {
-	Accountid    int64  `json:"accountid"`
-	Playerid     int64  `json:"playerid"`
-	Name         string `json:"name"`
-	Team         int64  `json:"team"`
-	Heroid       int64  `json:"heroid"`
-	Level        int64  `json:"level"`
-	KillCount    int64  `json:"kill_count"`
-	DeathCount   int64  `json:"death_count"`
-	AssistsCount int64  `json:"assists_count"`
-	DeniesCount  int64  `json:"denies_count"`
-	LhCount      int64  `json:"lh_count"`
-	Gold         int64  `json:"gold"`
-	X            int64  `json:"x"`
-	Y            int64  `json:"y"`
-	NetWorth     int64  `json:"net_worth"`
+	Accountid    int64   `json:"accountid"`
+	Playerid     int64   `json:"playerid"`
+	Name         string  `json:"name"`
+	Team         int64   `json:"team"`
+	Heroid       int64   `json:"heroid"`
+	Level        int64   `json:"level"`
+	KillCount    int64   `json:"kill_count"`
+	DeathCount   int64   `json:"death_count"`
+	AssistsCount int64   `json:"assists_count"`
+	DeniesCount  int64   `json:"denies_count"`
+	LhCount      int64   `json:"lh_count"`
+	Gold         int64   `json:"gold"`
+	X            float64 `json:"x"`
+	Y            float64 `json:"y"`
+	NetWorth     int64   `json:"net_worth"`
+	Abilities    []int64 `json:"abilities"`
+	Items        []int64 `json:"items"`
 }
