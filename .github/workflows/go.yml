@@ -2,9 +2,9 @@ name: Go
 
 on:
   push:
-    branches: [ master, Fetaure/* ]
+    branches: [ master, /^Feature/.*$/ ]
   pull_request:
-    branches: [ master, Fetaure/* ]
+    branches: [ master, /^Feature/.*$/ ]
 
 jobs:
   build:
@@ -18,8 +18,8 @@ jobs:
         go-version: 1.15
 
     - name: Build
-      run: go build -v ./...
+      run: go build -v ./src
 
     - name: Test
-      run: go test -v ./...
+      run: go test -v ./src
     
