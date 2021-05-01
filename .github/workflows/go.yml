@@ -7,9 +7,8 @@ on:
     branches: [ master ]
 
 jobs:
-
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@v2
 
@@ -23,3 +22,4 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+    
