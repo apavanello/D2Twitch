@@ -7,16 +7,11 @@ import (
 
 // Config
 type Config struct {
-	Output  Output  `yaml:"output"`
 	Steam   Steam   `yaml:"steam"`
 	Dataset Dataset `yaml:"dataset"`
+	Output  Output  `yaml:"output"`
 	Cron    Cron    `yaml:"cron"`
-}
-
-// Output
-type Output struct {
-	MatchStats  string `yaml:"matchStats"`
-	PlayerStats string `yaml:"playerStats"`
+	Mock    Mock    `yaml:"mock"`
 }
 
 // Steam
@@ -32,17 +27,34 @@ type Dataset struct {
 	OpenDotaApi string  `yaml:"openDotaApi"`
 }
 
+// Console
+type Console struct {
+	ClearAfterRead bool   `yaml:"clearAfterRead"`
+	Path           string `yaml:"path"`
+}
+
+// Output
+type Output struct {
+	MatchStats  string `yaml:"matchStats"`
+	PlayerStats string `yaml:"playerStats"`
+}
+
 // Cron
 type Cron struct {
 	GetServerSteamID string `yaml:"getServerSteamID"`
-	GetMatchStats    string `yaml:"getMatchStats"`
 	WriteMatchStats  string `yaml:"writeMatchStats"`
+	GetMatchStats    string `yaml:"getMatchStats"`
 }
 
-// Console
-type Console struct {
-	Path           string `yaml:"path"`
-	ClearAfterRead bool   `yaml:"clearAfterRead"`
+// Mock
+type Mock struct {
+	Enable    bool      `yaml:"enable"`
+	Endpoints Endpoints `yaml:"endpoints"`
+}
+
+// Endpoints
+type Endpoints struct {
+	MatchStats string `yaml:"matchStats"`
 }
 
 // Metodo loadConfig

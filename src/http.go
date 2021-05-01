@@ -14,6 +14,10 @@ func getJsonFromWebAPI(currentServerSteamID string) {
 	serverSteamID := "server_steam_id=" + currentServerSteamID
 	URI := apiDomain + matchPatch + apiKey + "&" + serverSteamID
 
+	if cfg.Mock.Enable == true {
+		URI = cfg.Mock.Endpoints.MatchStats
+	}
+
 	for i := 0; i < 3; i++ {
 		resp, err := http.Get(URI)
 		if err != nil {

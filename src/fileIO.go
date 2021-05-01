@@ -27,13 +27,23 @@ func closeFile(f *os.File) {
 	}
 }
 
-func readFile (fileName string) []byte {
+func readFile(fileName string) []byte {
 
 	b, err := ioutil.ReadFile(fileName)
 	if err != nil {
 		processError(err)
 	}
 	return b
+}
+
+//createFile
+func createFile(fileFullPath string) *os.File {
+
+	file, err := os.Create(fileFullPath)
+	if err != nil {
+		processError(err)
+	}
+	return file
 }
 
 func processError(err error) {
