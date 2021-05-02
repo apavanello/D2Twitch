@@ -6,7 +6,7 @@ import (
 
 var cfg = Config{}
 var currentServerSteamID string
-var matchJson Match
+var matchJSON Match
 var heroes Heroes
 var gameMode GameMode
 

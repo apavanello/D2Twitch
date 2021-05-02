@@ -5,8 +5,10 @@ import (
 	"path/filepath"
 )
 
+// Heroes Struct
 type Heroes map[string]HeroesValue
 
+// HeroesValue struct
 type HeroesValue struct {
 	ID              int64       `json:"id"`
 	Name            string      `json:"name"`
@@ -39,23 +41,29 @@ type HeroesValue struct {
 	Legs            int64       `json:"legs"`
 }
 
+// AttackType type
 type AttackType string
 
+// AttackType const
 const (
 	Melee  AttackType = "Melee"
 	Ranged AttackType = "Ranged"
 )
 
+// PrimaryAttr type
 type PrimaryAttr string
 
+// PrimaryAttr type const
 const (
 	Agi PrimaryAttr = "agi"
 	Int PrimaryAttr = "int"
 	Str PrimaryAttr = "str"
 )
 
+// Role type
 type Role string
 
+// Role type const
 const (
 	Carry     Role = "Carry"
 	Disabler  Role = "Disabler"

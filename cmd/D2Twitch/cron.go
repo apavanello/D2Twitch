@@ -12,7 +12,7 @@ func startCron() {
 	if _, err := c.AddFunc(cfg.Cron.GetServerSteamID, runGetServerSteamID); err != nil {
 		processError(err)
 	}
-	if _, err := c.AddFunc(cfg.Cron.GetMatchStats, runGetMatchJson); err != nil {
+	if _, err := c.AddFunc(cfg.Cron.GetMatchStats, runGetMatchJSON); err != nil {
 		processError(err)
 	}
 	if _, err := c.AddFunc(cfg.Cron.WriteMatchStats, runWriteMatchStats); err != nil {
@@ -26,14 +26,14 @@ func startCron() {
 
 func runGetServerSteamID() {
 	currentServerSteamID = consoleLog()
-	runGetMatchJson()
+	runGetMatchJSON()
 	fmt.Printf("%v\n", currentServerSteamID)
 
 }
 
-func runGetMatchJson() {
+func runGetMatchJSON() {
 	if currentServerSteamID != "" {
-		getJsonFromWebAPI(currentServerSteamID)
+		getJSONFromWebAPI(currentServerSteamID)
 		writeMatchStats()
 	}
 }

@@ -6,10 +6,10 @@ import (
 	"net/http"
 )
 
-func getJsonFromWebAPI(currentServerSteamID string) {
+func getJSONFromWebAPI(currentServerSteamID string) {
 
-	apiDomain := cfg.Dataset.SteamWebApi
-	apiKey := "key=" + cfg.Steam.ApiKey
+	apiDomain := cfg.Dataset.SteamWebAPI
+	apiKey := "key=" + cfg.Steam.APIKey
 	matchPatch := "/IDOTA2MatchStats_570/GetRealtimeStats/v1/?"
 	serverSteamID := "server_steam_id=" + currentServerSteamID
 	URI := apiDomain + matchPatch + apiKey + "&" + serverSteamID
@@ -29,7 +29,7 @@ func getJsonFromWebAPI(currentServerSteamID string) {
 			if err != nil {
 				processError(err)
 			}
-			if err := json.Unmarshal(body, &matchJson); err != nil {
+			if err := json.Unmarshal(body, &matchJSON); err != nil {
 				println(string(body))
 				processError(err)
 			}

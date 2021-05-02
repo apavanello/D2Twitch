@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 )
 
-// Config
+// Config struct
 type Config struct {
 	Steam   Steam   `yaml:"steam"`
 	Dataset Dataset `yaml:"dataset"`
@@ -15,45 +15,45 @@ type Config struct {
 	Mock    Mock    `yaml:"mock"`
 }
 
-// Steam
+// Steam struct
 type Steam struct {
-	ApiKey string `yaml:"apiKey"`
+	APIKey string `yaml:"apiKey"`
 	UserID string `yaml:"userID"`
 }
 
-// Dataset
+// Dataset struct
 type Dataset struct {
 	Console     Console `yaml:"console"`
-	SteamWebApi string  `yaml:"steamWebApi"`
-	OpenDotaApi string  `yaml:"openDotaApi"`
+	SteamWebAPI string  `yaml:"steamWebApi"`
+	OpenDotaAPI string  `yaml:"openDotaApi"`
 }
 
-// Console
+// Console struct
 type Console struct {
 	ClearAfterRead bool   `yaml:"clearAfterRead"`
 	Path           string `yaml:"path"`
 }
 
-// Output
+// Output struct
 type Output struct {
 	MatchStats  string `yaml:"matchStats"`
 	PlayerStats string `yaml:"playerStats"`
 }
 
-// Cron
+// Cron struct
 type Cron struct {
 	GetServerSteamID string `yaml:"getServerSteamID"`
 	WriteMatchStats  string `yaml:"writeMatchStats"`
 	GetMatchStats    string `yaml:"getMatchStats"`
 }
 
-// Mock
+// Mock struct
 type Mock struct {
 	Enable    bool      `yaml:"enable"`
 	Endpoints Endpoints `yaml:"endpoints"`
 }
 
-// Endpoints
+// Endpoints struct
 type Endpoints struct {
 	MatchStats string `yaml:"matchStats"`
 }
@@ -64,7 +64,7 @@ func (c *Config) loadConfig() {
 	if err != nil {
 		processError(err)
 	}
-	configFile := filepath.Join(scriptPath, "config.yaml")
+	configFile := filepath.Join(scriptPath, "config.yml")
 
 	// Abre o Arquivo
 	f := openFile(configFile)

@@ -1,5 +1,6 @@
 package main
 
+// Match struct
 type Match struct {
 	Match      MatchClass `json:"match"`
 	Teams      []Team     `json:"teams"`
@@ -8,6 +9,7 @@ type Match struct {
 	DeltaFrame bool       `json:"delta_frame"`
 }
 
+//Building struct
 type Building struct {
 	Team      int64   `json:"team"`
 	Heading   float64 `json:"heading"`
@@ -19,10 +21,12 @@ type Building struct {
 	Destroyed bool    `json:"destroyed"`
 }
 
+// GraphData struct
 type GraphData struct {
 	GraphGold []int64 `json:"graph_gold"`
 }
 
+// MatchClass struct
 type MatchClass struct {
 	ServerSteamID string `json:"server_steam_id"`
 	Matchid       string `json:"matchid"`
@@ -36,11 +40,13 @@ type MatchClass struct {
 	Bans          []Ban  `json:"bans"`
 }
 
+// Ban struct
 type Ban struct {
 	Hero int64 `json:"hero"`
 	Team int64 `json:"team"`
 }
 
+// Team struct
 type Team struct {
 	TeamNumber  int64    `json:"team_number"`
 	TeamID      int64    `json:"team_id"`
@@ -53,6 +59,7 @@ type Team struct {
 	Players     []Player `json:"players"`
 }
 
+//Player struct
 type Player struct {
 	Accountid    int64   `json:"accountid"`
 	Playerid     int64   `json:"playerid"`

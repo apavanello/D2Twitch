@@ -5,8 +5,10 @@ import (
 	"path/filepath"
 )
 
+// GameMode Struct
 type GameMode map[string]GameModeValue
 
+// GameModeValue Struct
 type GameModeValue struct {
 	ID       int64  `json:"id"`
 	Name     string `json:"name"`
