@@ -1,5 +1,5 @@
 .idea/*
 .bin/*
 .output/*
-config/config.yaml
+config.yaml
 /bin/

@@ -64,7 +64,7 @@ func (c *Config) loadConfig() {
 	if err != nil {
 		processError(err)
 	}
-	configFile := filepath.Join(scriptPath, "config", "config.yaml")
+	configFile := filepath.Join(scriptPath, "config.yaml")
 
 	// Abre o Arquivo
 	f := openFile(configFile)

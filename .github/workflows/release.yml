@@ -22,14 +22,14 @@ jobs:
       - name: Build Linux
         run: |
           rm -rf bin/linux/*
-          cp config/config.yml bin/config.yml
+          cp config/config.yaml bin/config.yml
           go build -v -o bin/linux/d2twitch ./cmd/D2Twitch
           zip bin/d2twitch-linux.zip bin/windows
 
       - name: Build Windows
         run: |
           rm -rf bin/windows/*
-          cp config/config.yml bin/config.yml
+          cp config/config.yaml bin/config.yml
           GOOS=windows go build -v -o bin/windows/D2twitch.exe ./cmd/D2Twitch
           zip bin/d2twitch-windows.zip bin/windows
 
