@@ -2,3 +2,4 @@
 .bin/*
 .output/*
 config/config.yaml
+/bin/
