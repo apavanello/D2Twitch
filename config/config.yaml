@@ -1,0 +1,27 @@
+steam:
+  apiKey: "<your steam API KEY>"
+  userID: "<User for main hero screen>"
+
+dataset:
+  console:
+    path: "<your steam dota2 folder>/console.log"
+    clearAfterRead: false
+  steamWebApi: "https://api.steampowered.com"
+  openDotaApi: "https://api.opendota.com"
+
+output:
+  matchStats: "matchstats.txt"
+  playerStats: "playerstats.txt"
+
+cron:
+  #ss mm hh d m D
+  #Cada 1 Min
+  getServerSteamID: "0 * * * * *"
+  writeMatchStats: "0 * * * * *"
+  # Cada 5 Min
+  getMatchStats: "0 * * * * *"
+
+mock:
+  enable: false
+  endpoints:
+    matchStats: "<Mock API URI>"
