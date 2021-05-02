@@ -20,8 +20,11 @@ jobs:
     - name: Test
       run: go test -v ./...
 
-    - name: Shows Avail Dists
-      run: go tool dist list
+    - name: Lint
+      run: golint ./...
 
     - name: Build
       run: go build -v -o bin/D2Twitch ./...
+
+    - name: Windows Build
+      run: GOOS=windows go build -v -o bin/D2Twitch.exe ./...

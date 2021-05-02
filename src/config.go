@@ -3,6 +3,7 @@ package main
 import (
 	"gopkg.in/yaml.v2"
 	"os"
+	"path/filepath"
 )
 
 // Config
@@ -63,7 +64,7 @@ func (c *Config) loadConfig() {
 	if err != nil {
 		processError(err)
 	}
-	configFile := scriptPath + "/config.yaml"
+	configFile := filepath.Join(scriptPath, "config.yaml")
 
 	// Abre o Arquivo
 	f := openFile(configFile)

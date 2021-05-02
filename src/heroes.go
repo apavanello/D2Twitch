@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"path/filepath"
 )
 
 type Heroes map[string]HeroesValue
@@ -68,7 +69,7 @@ const (
 )
 
 func (h Heroes) loadConst() {
-	f := readFile("data/dotaConst/heroes.json")
+	f := readFile(filepath.Join("data", "dotaConst", "heroes.json"))
 	if err := json.Unmarshal(f, &heroes); err != nil {
 		processError(err)
 	}

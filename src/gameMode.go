@@ -1,6 +1,9 @@
 package main
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"path/filepath"
+)
 
 type GameMode map[string]GameModeValue
 
@@ -11,7 +14,7 @@ type GameModeValue struct {
 }
 
 func (g GameMode) loadConst() {
-	f := readFile("data/dotaConst/gameMode.json")
+	f := readFile(filepath.Join("data", "dotaConst", "gameMode.json"))
 	if err := json.Unmarshal(f, &gameMode); err != nil {
 		processError(err)
 	}
