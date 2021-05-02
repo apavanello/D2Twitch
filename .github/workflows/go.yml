@@ -28,9 +28,3 @@ jobs:
 
     - name: Build Windows
       run: GOOS=windows go build -v -o bin/D2twitch.exe ./cmd/d2twitch
-
-    - name: Upload
-      uses: actions/upload-artifact@v2
-      with:
-        name: D2Twitch
-        path: "bin/*.tgz"
