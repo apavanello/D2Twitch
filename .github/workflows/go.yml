@@ -17,9 +17,11 @@ jobs:
       with:
         go-version: 1.15
 
-    - name: Build
-      run: go build -v -o bin/D2Twitch ./...
-
     - name: Test
       run: go test -v ./...
-    
+
+    - name: Shows Avail Dists
+      run: go tool dist list
+
+    - name: Build
+      run: go build -v -o bin/D2Twitch ./...
