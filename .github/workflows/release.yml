@@ -35,13 +35,13 @@ jobs:
         uses: papeloto/action-zip@v1
         with:
           files: bin/linux/
-          dest: d2twitch-linux.zip
+          dest: bin/d2twitch-linux.zip
 
       - name: Zip Windows
         uses: papeloto/action-zip@v1
         with:
           files: bin/windows/
-          dest: d2twitch-windows.zip
+          dest: bin/d2twitch-windows.zip
 
       - name: Create Release
         id: create_release
