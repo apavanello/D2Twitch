@@ -1,4 +1,4 @@
 .idea/*
 .bin/*
 .output/*
-config.yaml
+config/config.yaml
