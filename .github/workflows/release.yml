@@ -9,7 +9,7 @@ jobs:
   build:
 
     name: Upload Release Asset
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -21,8 +21,17 @@ jobs:
 
       - name: Build Linux
         run: |
-          go build -v -o bin/d2twitch ./cmd/D2Twitch
-          GOOS=windows go build -v -o bin/D2twitch.exe ./cmd/D2Twitch
+          rm -rf bin/linux/*
+          cp config/config.yml bin/config.yml
+          go build -v -o bin/linux/d2twitch ./cmd/D2Twitch
+          zip bin/d2twitch-linux.zip bin/windows
+
+      - name: Build Windows
+        run: |
+          rm -rf bin/windows/*
+          cp config/config.yml bin/config.yml
+          GOOS=windows go build -v -o bin/windows/D2twitch.exe ./cmd/D2Twitch
+          zip bin/d2twitch-windows.zip bin/windows
 
       - name: Create Release
         id: create_release
@@ -35,11 +44,24 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload Release Asset
-        id: upload-release-asset
+      - name: Upload Release Linux Asset
+        id: upload-release-asset-linux
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./bin/
+          asset_path: .bin/d2twitch-linux.zip
+          asset_name: d2twitch-linux.zip
+          asset_content_type: application/zip
+
+      - name: Upload Release Windows Asset
+        id: upload-release-asset-windows
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: .bin/d2twitch-windows.zip
+          asset_name: d2twitch-windows.zip
+          asset_content_type: application/zip
