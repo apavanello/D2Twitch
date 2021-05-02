@@ -23,15 +23,25 @@ jobs:
         run: |
           rm -rf bin/linux/*
           go build -v -o bin/linux/d2twitch ./cmd/D2Twitch
-          cp config/config.yml bin/config.yml
-          zip bin/d2twitch-linux.zip bin/windows
+          cp config/config.yml bin/linux/config.yml
 
       - name: Build Windows
         run: |
           rm -rf bin/windows/*
           GOOS=windows go build -v -o bin/windows/D2twitch.exe ./cmd/D2Twitch
-          cp config/config.yaml bin/config.yml
-          zip bin/d2twitch-windows.zip bin/windows
+          cp config/config.yaml bin/windows/config.yml
+
+      - name: Zip Linux
+        uses: papeloto/action-zip@v1
+        with:
+          files: bin/linux/
+          dest: d2twitch-linux.zip
+
+      - name: Zip Windows
+        uses: papeloto/action-zip@v1
+        with:
+          files: bin/windows/
+          dest: d2twitch-windows.zip
 
       - name: Create Release
         id: create_release
