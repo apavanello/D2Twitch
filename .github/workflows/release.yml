@@ -29,7 +29,7 @@ jobs:
         run: |
           rm -rf bin/windows/*
           GOOS=windows go build -v -o bin/windows/D2twitch.exe ./cmd/D2Twitch
-          cp config/config.yaml bin/windows/config.yml
+          cp config/config.yml bin/windows/config.yml
 
       - name: Zip Linux
         uses: papeloto/action-zip@v1
