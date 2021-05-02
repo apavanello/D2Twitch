@@ -22,15 +22,3 @@ jobs:
 
     - name: Lint
       run: go get -u golang.org/x/lint/golint && golint ./cmd/D2Twitch
-
-    - name: Build Linux
-      run: go build -v -o bin/d2twitch ./cmd/D2Twitch
-
-    - name: Build Windows
-      run: GOOS=windows go build -v -o bin/D2twitch.exe ./cmd/D2Twitch
-
-    - name: Upload
-      uses: actions/upload-artifact@v2
-      with:
-        name: D2Twitch
-        path: "bin/*"
