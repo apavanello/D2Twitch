@@ -23,16 +23,16 @@ jobs:
         go-version: 1.15
 
     - name: Test
-      run: go test -v ./cmd/d2twitch
+      run: go test -v ./cmd/D2Twitch
 
     - name: Lint
-      run: go get -u golang.org/x/lint/golint && golint ./cmd/d2twitch
+      run: go get -u golang.org/x/lint/golint && golint ./cmd/D2Twitch
 
     - name: Build Linux
-      run: go build -v -o bin/d2twitch ./...
+      run: go build -v -o bin/d2twitch ./cmd/D2Twitch
 
     - name: Build Windows
-      run: GOOS=windows go build -v -o bin/D2twitch.exe ./cmd/d2twitch
+      run: GOOS=windows go build -v -o bin/D2twitch.exe ./cmd/D2Twitch
 
     - name: Upload
       uses: actions/upload-artifact@v2
